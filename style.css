@@ -1,0 +1,15 @@
+.container{
+    display: flex;
+    width: 10rem;
+    flex-direction: column;
+}
+.container img{
+    width: 10em;
+    
+}
+.food-container{
+    display: flex;
+    width: 10rem;
+    flex-direction: column;
+}
+

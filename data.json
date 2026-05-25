@@ -1,0 +1,466 @@
+{
+  "user": [
+    {
+      "id": "7953",
+      "name": "Rohith",
+      "userId": "rohith",
+      "password": "4444"
+    },
+    {
+      "id": "17ea",
+      "name": "Cahithanya",
+      "userId": "raju",
+      "password": "1234"
+    }
+  ],
+  "category": {
+    "food": [
+      {
+        "id": 1,
+        "name": "Biryani",
+        "image": "https://www.cubesnjuliennes.com/wp-content/uploads/2020/07/Chicken-Biryani-Recipe.jpg",
+        "price": "$20",
+        "rating": [
+          4,
+          4.4,
+          5
+        ],
+        "reviews": [
+          "good",
+          "excellent",
+          "Supereb"
+        ],
+        "about": "it is madeup of this ingredirnts ",
+        "location": "hyderabad",
+        "resturant": "Paradise"
+      },
+      {
+        "id": 2,
+        "name": "Mutton Gosh",
+        "image": "https://www.licious.in/blog/wp-content/uploads/2020/12/Mutton-Bhuna.jpg",
+        "price": "$27",
+        "rating": [
+          4.3,
+          4.7,
+          5
+        ],
+        "reviews": [
+          "good",
+          "excellent",
+          "Supereb"
+        ],
+        "about": "it is madeup of this ingredirnts ",
+        "location": "hyderabad",
+        "resturant": "Paradise"
+      },
+      {
+        "id": 3,
+        "name": "Chicken kebab",
+        "image": "https://simshomekitchen.com/wp-content/uploads/2022/04/tandoori-skewers.png",
+        "price": "$18",
+        "rating": [
+          4.9,
+          4.4,
+          4.4
+        ],
+        "reviews": [
+          "good",
+          "excellent",
+          "Supereb"
+        ],
+        "about": "it is madeup of this ingredirnts ",
+        "location": "hyderabad",
+        "resturant": "Paradise"
+      }
+    ],
+    "home": [
+      {
+        "id": 23,
+        "name": "Marble Tiles",
+        "image": "https://www.hrjohnsonindia.com/assets/images/blog/how-floor-tiles-can-help-elevate-the-decor.jpg",
+        "price": "$10",
+        "rating": [
+          4,
+          4,
+          5
+        ],
+        "reviews": [
+          "good",
+          "excellent",
+          "Supereb"
+        ],
+        "about": "it is madeup of this ingredirnts ",
+        "location": "Kokapet",
+        "Compamny": "Stella"
+      },
+      {
+        "id": 24,
+        "name": "Luxury Door",
+        "image": "https://image.made-in-china.com/2f0j00PWkowqNhlLpv/Exterior-Luxury-Hard-Solid-Wood-Doors-Teak-Wooden-Main-Double-Door-Designs-with-Decorative-Glass.jpg",
+        "price": "$15",
+        "rating": [
+          4.1,
+          4.5,
+          4.4
+        ],
+        "reviews": [
+          "good",
+          "excellent",
+          "Supereb"
+        ],
+        "about": "it is madeup of this ingredirnts ",
+        "location": "Balanagar",
+        "Compamny": "Peramid"
+      },
+      {
+        "id": 25,
+        "name": "Kitchen Sinks",
+        "image": "https://lipkahome.com/cdn/shop/files/DoubleBowlBlack.jpg?v=1720176780",
+        "price": "$30",
+        "rating": [
+          4.7,
+          4.7,
+          5
+        ],
+        "reviews": [
+          "good",
+          "excellent",
+          "Supereb"
+        ],
+        "about": "it is madeup of this ingredirnts ",
+        "location": "Kachiguda",
+        "Compamny": "Stinker"
+      }
+    ],
+    "health": [
+      {
+        "id": 34,
+        "name": "Dr. Smith",
+        "image": "https://static.vecteezy.com/system/resources/thumbnails/047/883/550/small/young-indian-female-doctor-isolated-photo.jpg",
+        "price": "$100",
+        "rating": [
+          4.5,
+          3.9,
+          4
+        ],
+        "reviews": [
+          "good",
+          "excellent",
+          "Supereb",
+          "Need some timetable issue"
+        ],
+        "about": "it is madeup of this ingredirnts ",
+        "location": "Balanagar",
+        "clinic": "Smile Dental Care"
+      },
+      {
+        "id": 35,
+        "name": "Dr. Rahul",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5hojFVClI0ItygtOJY8trk2Jet7DKwkQxvA&s",
+        "price": "$100",
+        "rating": [
+          4.5,
+          4.9,
+          4.7
+        ],
+        "reviews": [
+          "good",
+          "excellent",
+          "Supereb",
+          "Need some timetable issue"
+        ],
+        "about": "it is madeup of this ingredirnts ",
+        "location": "Kukatpally",
+        "clinic": "Shine Care"
+      },
+      {
+        "id": 3990,
+        "name": "Dr. Harika",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTcIw3UpWNibCP7CuSJSHeqQ1AZaTjik1Qwig&s",
+        "price": "$100",
+        "rating": [
+          4.7,
+          4.6,
+          4.8
+        ],
+        "reviews": [
+          "good",
+          "excellent",
+          "Supereb",
+          "Need some timetable issue"
+        ],
+        "about": "it is madeup of this ingredirnts ",
+        "location": "Ahemdabad",
+        "clinic": " Thoot Hub Dental Care"
+      },
+      {
+        "id": 36,
+        "name": "Dr. Reddy",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2hE8pbUfa8tnmHZd8CRJ4hrVke9qXv7IHfY_YDJxk4w&s",
+        "price": "$100",
+        "rating": [
+          4.5,
+          3.9,
+          4
+        ],
+        "reviews": [
+          "good",
+          "excellent",
+          "Supereb",
+          "Need some timetable issue"
+        ],
+        "about": "it is madeup of this ingredirnts ",
+        "location": "Balanagar",
+        "clinic": " City Care Hospital"
+      },
+      {
+        "id": 37,
+        "name": "Dr. Rahul",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbvlothJMzI7tbUEIA03HGOoKSAvBLkMU-pw&s",
+        "price": "$100",
+        "rating": [
+          4.5,
+          4.9,
+          4.7
+        ],
+        "reviews": [
+          "good",
+          "excellent",
+          "Supereb",
+          "Need some timetable issue"
+        ],
+        "about": "it is madeup of this ingredirnts ",
+        "location": "Kukatpally",
+        "clinic": "Prime Care Hospital"
+      },
+      {
+        "id": 38,
+        "name": "Dr. Harika",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTD6pzdOcsrB_dLs5a7Zkwiud3a7YLnfil7Hw&s",
+        "price": "$100",
+        "rating": [
+          4.7,
+          4.6,
+          4.8
+        ],
+        "reviews": [
+          "good",
+          "excellent",
+          "Supereb",
+          "Need some timetable issue"
+        ],
+        "about": "it is madeup of this ingredirnts ",
+        "location": "Ahemdabad",
+        "clinic": " City Care Hospital"
+      },
+      {
+        "id": 39,
+        "name": "Dr. John",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ9f5zcrG7Kg8fnbsfJytxf4Ssxd8a4V6hDqw&s",
+        "price": "$100",
+        "rating": [
+          4.5,
+          3.9,
+          4
+        ],
+        "reviews": [
+          "good",
+          "excellent",
+          "Supereb",
+          "Need some timetable issue"
+        ],
+        "about": "it is madeup of this ingredirnts ",
+        "location": "Balanagar",
+        "clinic": "AlignLife Clinic"
+      },
+      {
+        "id": 40,
+        "name": "Dr. Jane",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQzrr0sZEjmSKVO_NioVyyBzav1skWT96fFpw&s",
+        "price": "$100",
+        "rating": [
+          4.5,
+          4.9,
+          4.7
+        ],
+        "reviews": [
+          "good",
+          "excellent",
+          "Supereb",
+          "Need some timetable issue"
+        ],
+        "about": "it is madeup of this ingredirnts ",
+        "location": "Kukatpally",
+        "clinic": "SpineCare Chiropractic"
+      },
+      {
+        "id": 41,
+        "name": "Dr. Shanker",
+        "image": "https://www.medicarespots.com/wp-content/uploads/2020/04/1527143231Niranjan1.jpg",
+        "price": "$100",
+        "rating": [
+          4.5,
+          3.9,
+          4
+        ],
+        "reviews": [
+          "good",
+          "excellent",
+          "Supereb",
+          "Need some timetable issue"
+        ],
+        "about": "it is madeup of this ingredirnts ",
+        "location": "Bhadurpally",
+        "clinic": "SpinalZone Clinic"
+      }
+    ],
+    "hotels": [
+      {
+        "id": 101,
+        "name": "The Grand Hyatt",
+        "image": "https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=500",
+        "pricePerNight": "$350",
+        "rating": [
+          4.8,
+          4.9,
+          4.7
+        ],
+        "reviews": [
+          "Breathtaking views",
+          "World-class service",
+          "Absolutely luxurious"
+        ],
+        "about": "A 5-star luxury hotel in the heart of the city with rooftop pool and fine dining.",
+        "location": "Banjara Hills, Hyderabad",
+        "type": "Luxury",
+        "amenities": [
+          "Rooftop Pool",
+          "Spa",
+          "Fine Dining",
+          "Valet Parking",
+          "Gym"
+        ],
+        "totalRooms": 320,
+        "checkIn": "2:00 PM",
+        "checkOut": "12:00 PM"
+      },
+      {
+        "id": 102,
+        "name": "Zostel Backpackers Hostel",
+        "image": "https://images.unsplash.com/photo-1555854877-bab0e564b8d5?w=500",
+        "pricePerNight": "$15",
+        "rating": [
+          4.2,
+          4,
+          4.3
+        ],
+        "reviews": [
+          "Great for solo travellers",
+          "Fun community vibe",
+          "Clean and affordable"
+        ],
+        "about": "A budget-friendly hostel perfect for backpackers with dorm beds and common lounge.",
+        "location": "Madhapur, Hyderabad",
+        "type": "Hostel",
+        "amenities": [
+          "Free WiFi",
+          "Common Lounge",
+          "Shared Kitchen",
+          "Lockers",
+          "Travel Desk"
+        ],
+        "totalRooms": 40,
+        "checkIn": "12:00 PM",
+        "checkOut": "10:00 AM"
+      },
+      {
+        "id": 103,
+        "name": "Treehouse Jungle Resort",
+        "image": "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=500",
+        "pricePerNight": "$180",
+        "rating": [
+          4.6,
+          4.8,
+          4.5
+        ],
+        "reviews": [
+          "Unique experience",
+          "Perfect for couples",
+          "Nature at its best"
+        ],
+        "about": "An eco-friendly resort nestled in the forest with treehouse cottages and nature walks.",
+        "location": "Araku Valley, Visakhapatnam",
+        "type": "Resort",
+        "amenities": [
+          "Nature Trails",
+          "Bonfire",
+          "Organic Restaurant",
+          "Bird Watching",
+          "Yoga"
+        ],
+        "totalRooms": 25,
+        "checkIn": "1:00 PM",
+        "checkOut": "11:00 AM"
+      },
+      {
+        "id": 104,
+        "name": "Bussiness Inn Express",
+        "image": "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=500",
+        "pricePerNight": "$80",
+        "rating": [
+          4.1,
+          4.3,
+          4
+        ],
+        "reviews": [
+          "Great for business trips",
+          "Fast WiFi",
+          "Close to tech parks"
+        ],
+        "about": "A no-frills business hotel with meeting rooms, fast internet, and airport shuttle.",
+        "location": "HITEC City, Hyderabad",
+        "type": "Business",
+        "amenities": [
+          "Conference Rooms",
+          "High-Speed WiFi",
+          "Airport Shuttle",
+          "24hr Reception",
+          "Laundry"
+        ],
+        "totalRooms": 150,
+        "checkIn": "3:00 PM",
+        "checkOut": "12:00 PM"
+      },
+      {
+        "id": 105,
+        "name": "Heritage Palace Stay",
+        "image": "https://images.unsplash.com/photo-1590073242678-70ee3fc28e8e?w=500",
+        "pricePerNight": "$220",
+        "rating": [
+          4.7,
+          4.6,
+          4.9
+        ],
+        "reviews": [
+          "Felt like royalty",
+          "Stunning architecture",
+          "Unforgettable experience"
+        ],
+        "about": "A restored 18th-century palace offering a royal stay with antique decor and cultural shows.",
+        "location": "Golconda, Hyderabad",
+        "type": "Heritage",
+        "amenities": [
+          "Cultural Shows",
+          "Royal Dining",
+          "Palace Tour",
+          "Swimming Pool",
+          "Ayurvedic Spa"
+        ],
+        "totalRooms": 60,
+        "checkIn": "2:00 PM",
+        "checkOut": "11:00 AM"
+      }
+    ]
+  },
+  "$schema": "./node_modules/json-server/schema.json"
+}

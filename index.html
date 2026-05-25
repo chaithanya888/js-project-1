@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="header">
+        <input type="text" placeholder="Search an Category" id="Search" onchange="onSearch(this.value)">
+        <button  id="btn-1">Search</button>
+        <a href="loginpage.html">Login</a>
+        <button type="button" id="sign-up">sign-up</button><br><br>
+        <button type="button" onclick="checkAuth('food')" value="food">Food</button>
+        <button type="button" onclick="checkAuth('home')" value="home">Home</button>
+        <button type="button" onclick="checkAuth('health')" value="health">Health</button>
+        <button type="button" onclick="checkAuth('hotels')" value="hotels">Hotels</button>
+    </div> 
+    <div class="container">
+
+    </div>
+    <div id="food-container">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUvfTQKSWuIApiVcA5EXUO_VzmFFEUCx6HEA&s"><br>
+        <a href="#">Burger</a>
+        <p>Price: $10.99</p>
+        <p>Rating: 4.5</p>
+        <description>A delicious burger made with fresh ingredients.</description>
+
+    </div>
+    <script  src="main.js"></script>
+</body>
+</html>
