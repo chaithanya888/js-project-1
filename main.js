@@ -1,8 +1,7 @@
 //---------------------Category button & auth with Item Display functions------------//
-let foodcontainer=document.getElementById("food-container");
+const foodcontainer=document.getElementById("food-container");
 
-let container=document.getElementsByClassName("container")[0];
-
+const container=document.getElementsByClassName("container")[0];
 
 
 //document.getElementById("btn-1").addEventListener("click",searchCategory);
@@ -43,9 +42,8 @@ async function searchCategory(selection){
             <button onclick="addReview(${data[selection][i].id})">Add Review</button>`;
 
             container.append(div);
-            loading(false);
-        
         }
+        loading(false);
         
     document.getElementById("Search").value=`${selection}`;
 }
@@ -103,6 +101,7 @@ async function loading(status) {
         container.append(loadDiv);
         
     }else{
+        let loadDiv=document.getElementById("loading");
         if(loadDiv){
             loadDiv.remove();
             loadDiv=null;
@@ -152,18 +151,22 @@ async function submitReview(id){
     }
     let res=await fetch(`http://localhost:3000/category`);
     let data=await res.json();
-    let reviewItems= Object.values(data).flat();
-    reviewItems.map(async (obj)  =>{
-        if(obj.id==id){
-            let res=await fetch(`http://localhost:3000/category/${obj.id}`,{
+    for(let key in data){
+        let obj=data[key].find(obj=>obj.id==id);
+        if(obj){
+            obj.rating.push(rating);
+            obj.reviews.push(review);
+cls
+            let getRes=await fetch(`http://localhost:3000/category`,{
                 method:"PATCH",
                 headers:{
                     "content-type":"application/json",
         },
         body:JSON.stringify({
-            "review":review,
-            "rating":rating
+            [key]:data[key]
         })
-            });
+            }
+        );
         }
-    });}
+    }
+}
