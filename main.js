@@ -130,11 +130,12 @@ async function addReview(id){
             <p>Price: ${obj.price}</p>
             <p>Location: ${obj.location}</p>
             ${obj.name.includes("Dr.") ? `<p>Clinic: ${obj.clinic}</p>` : ""}
-            <p>Rating: ${averageOfRatings(obj.rating)}</p>
             <p>${obj.about}</p>
             <textarea id="review" placeholder="Write your review here"></textarea><br>
             <input type="number" id="rating" placeholder="Rate 1-5"><br>
-            <button onclick="submitReview(${obj.id})">Submit Review</button>`;
+            <p style="color: red;" id="rating-error"></p>
+            <button id="submit-review" onclick="submitReview(${obj.id})">Submit Review</button>
+            `;
             container.append(div);
             loading(false);
         }
@@ -146,7 +147,9 @@ async function submitReview(id){
     let review=document.getElementById("review").value;
     let rating=parseInt(document.getElementById("rating").value);
     if(rating<1 || rating>5){
-        alert("Please enter a valid rating between 1 and 5");
+        let ratingError=document.getElementById("rating-error");
+        ratingError.textContent="Please enter a valid rating between 1 and 5.";
+        
         return;
     }
     let res=await fetch(`http://localhost:3000/category`);
@@ -156,7 +159,6 @@ async function submitReview(id){
         if(obj){
             obj.rating.push(rating);
             obj.reviews.push(review);
-cls
             let getRes=await fetch(`http://localhost:3000/category`,{
                 method:"PATCH",
                 headers:{
@@ -167,6 +169,20 @@ cls
         })
             }
         );
+        if(getRes.ok){
+        let ratingError=document.getElementById("rating-error");
+        ratingError.textContent="Review submitted successfully!";
+        ratingError.style.color="green";
+        setTimeout(()=>{
+                document.getElementById("review").remove();
+                document.getElementById("rating").remove();
+                document.getElementById("submit-review").remove();
+                location.reload();
+            },400);
+        }
         }
     }
 }
+
+
+//------------------------Account Button All Functions------------------//

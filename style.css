@@ -12,4 +12,21 @@
     width: 10rem;
     flex-direction: column;
 }
+.account-section{
+    display: flex;
+    width: 10rem;
+    flex-direction: column;
+}
+.account-info{
+    display: none;
+    position: absolute;
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 10px;
+    z-index: 1;
+}
+.account-btn:hover .account-info{
+    cursor: pointer;
+    display: block;
+}
 

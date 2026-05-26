@@ -11,12 +11,23 @@
         <input type="text" placeholder="Search an Category" id="Search" onchange="onSearch(this.value)">
         <button  id="btn-1">Search</button>
         <a href="loginpage.html">Login</a>
-        <button type="button" id="sign-up">sign-up</button><br><br>
+        <button type="button" id="sign-up">sign-up</button>
+    </div> 
+    <div class="account-section">
+        <button id="account-btn" style="width: 2rem; height: 2rem; border-radius: 50%; overflow: hidden; background-image: url('https://upload.wikimedia.org/wikipedia/commons/a/ac/Default_pfp.jpg'); background-size: cover;"></button>
+        </div>
+    <div class="account-info">
+        <button type="button" id="my-account">My Account</button><br><br>
+        <button type="button" id="my-orders">My Orders</button><br><br>
+        <button type="button" id="my-reviews">My Reviews</button><br><br>
+        <button type="button" id="logout">Logout</button>
+    </div>
+    <div class="category-btns">
         <button type="button" onclick="checkAuth('food')" value="food">Food</button>
         <button type="button" onclick="checkAuth('home')" value="home">Home</button>
         <button type="button" onclick="checkAuth('health')" value="health">Health</button>
         <button type="button" onclick="checkAuth('hotels')" value="hotels">Hotels</button>
-    </div> 
+    </div>
     <div class="container">
 
     </div>
