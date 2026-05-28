@@ -170,6 +170,21 @@ async function submitReview(id){
             }
         );
         if(getRes.ok){
+        let backres=await fetch(`http://localhost:3000/user/${localStorage.getItem("id")}`,{
+            method:"PUT",
+            headers:{
+                "content-type":"application/json",
+            },
+            body:JSON.stringify({
+                 "item-id":[id],
+        "item-rating":[rating],
+        "item-review":[review]   
+            })
+
+            
+        });
+
+        if(backres.ok){
         let ratingError=document.getElementById("rating-error");
         ratingError.textContent="Review submitted successfully!";
         ratingError.style.color="green";
@@ -179,6 +194,11 @@ async function submitReview(id){
                 document.getElementById("submit-review").remove();
                 location.reload();
             },400);
+        }else{
+            console.error(backres.statusText);
+        }
+        }else{
+            console.error(backres.statusText);
         }
         }
     }
@@ -186,3 +206,10 @@ async function submitReview(id){
 
 
 //------------------------Account Button All Functions------------------//
+
+const accountBtn=document.getElementById("account-btn");
+accountBtn.addEventListener("click",openAccountPage);
+
+function openAccountPage() {
+    window.location.href="account.html";
+}
