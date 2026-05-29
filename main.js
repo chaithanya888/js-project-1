@@ -1,4 +1,5 @@
 //---------------------Category button & auth with Item Display functions------------//
+
 const foodcontainer=document.getElementById("food-container");
 
 const container=document.getElementsByClassName("container")[0];
@@ -218,4 +219,31 @@ accountBtn.addEventListener("click",openAccountPage);
 
 function openAccountPage() {
     window.location.href="account.html";
+}
+
+//-----------------------review dispaly function------------------//
+
+window.onload= async () => {
+    await dispalyItems();
+}
+
+async function dispalyItems() {
+    let res=await fetch(`http://localhost:3000/category`);
+    let data=await res.json();
+    var displayItems=Object.values(data).flat();
+    displayItems.forEach((obj)=>{
+        let div=document.createElement("div");
+        div.innerHTML+=`
+        <img src="${obj.image}">
+        <a>${obj.name}</a>
+        <p>Price: ${obj.price}</p>
+        <p>Location: ${obj.location}</p>
+        ${obj.name.includes("Dr.") ? `<p>Clinic: ${obj.clinic}</p>` : ""}
+        <p>Rating: ${averageOfRatings(obj.rating)}</p>
+        <p>${obj.reviews[0]}</p>
+        <button onclick="addReview(${obj.id})">Add Review</button>
+        `;
+        foodcontainer.append(div);
+    })
+    
 }
