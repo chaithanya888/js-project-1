@@ -169,16 +169,22 @@ async function submitReview(id){
         })
             }
         );
+
         if(getRes.ok){
+            let res=await fetch(`http://localhost:3000/user`);
+            let data=await res.json();
+
+            let userData=await data.find(v=>v.id==localStorage.getItem("id"));
+
         let backres=await fetch(`http://localhost:3000/user/${localStorage.getItem("id")}`,{
-            method:"PUT",
+            method:"PATCH",
             headers:{
                 "content-type":"application/json",
             },
             body:JSON.stringify({
-                 "item-id":[id],
-        "item-rating":[rating],
-        "item-review":[review]   
+            "item-id":[...userData["item-id"], id],
+            "item-rating":[...userData["item-rating"], rating],
+            "item-review":[...userData["item-review"], review]   
             })
 
             
