@@ -49,7 +49,7 @@ async function searchCategory(selection){
     document.getElementById("Search").value=`${selection}`;
 }
 
-async function  averageOfRatings(ratings) {
+function  averageOfRatings(ratings) {
     let sum=0;
         for(let i=0;i<ratings.length;i++){
             sum+=ratings[i];
@@ -231,19 +231,30 @@ async function dispalyItems() {
     let res=await fetch(`http://localhost:3000/category`);
     let data=await res.json();
     var displayItems=Object.values(data).flat();
-    displayItems.forEach((obj)=>{
+    displayItems.forEach(async(obj)=>{
         let div=document.createElement("div");
         div.innerHTML+=`
-        <img src="${obj.image}">
+        <img style="width: 8rem; height: auto;" src="${obj.image}"><br>
         <a>${obj.name}</a>
         <p>Price: ${obj.price}</p>
         <p>Location: ${obj.location}</p>
         ${obj.name.includes("Dr.") ? `<p>Clinic: ${obj.clinic}</p>` : ""}
-        <p>Rating: ${averageOfRatings(obj.rating)}</p>
-        <p>${obj.reviews[0]}</p>
-        <button onclick="addReview(${obj.id})">Add Review</button>
+        <div></div>
+        
         `;
         foodcontainer.append(div);
     })
     
 }
+
+ function listReviews(obj){
+    
+    let list="";
+    obj.reviews.forEach((r)=>{
+        list+=`<li>${r}</li>`
+    })
+    obj.rating.forEach((r)=>{
+        list+=`<li>${r}</li>`
+    })
+    return list;
+} 
