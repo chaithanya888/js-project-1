@@ -25,10 +25,10 @@ function checkAuth(category){
 
 async function searchCategory(selection){
     container.innerHTML="";
-    loading(true);
     let res=await fetch("http://localhost:3000/category");
     let data=await res.json();
  
+    loading(true);
         for(let i=0;i<data[selection].length;i++){
     
             let div=document.createElement("div");
