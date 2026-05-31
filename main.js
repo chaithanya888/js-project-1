@@ -231,7 +231,7 @@ async function dispalyItems() {
     let res=await fetch(`http://localhost:3000/category`);
     let data=await res.json();
     var displayItems=Object.values(data).flat();
-    displayItems.forEach(async(obj)=>{
+    displayItems.forEach((obj)=>{
         let div=document.createElement("div");
         div.innerHTML+=`
         <img style="width: 8rem; height: auto;" src="${obj.image}"><br>
@@ -239,22 +239,76 @@ async function dispalyItems() {
         <p>Price: ${obj.price}</p>
         <p>Location: ${obj.location}</p>
         ${obj.name.includes("Dr.") ? `<p>Clinic: ${obj.clinic}</p>` : ""}
-        <div></div>
-        
+        <div>${listReviews(obj)} </div>
         `;
         foodcontainer.append(div);
     })
     
 }
 
- function listReviews(obj){
-    
-    let list="";
-    obj.reviews.forEach((r)=>{
-        list+=`<li>${r}</li>`
-    })
-    obj.rating.forEach((r)=>{
-        list+=`<li>${r}</li>`
-    })
-    return list;
-} 
+
+function getStarWidth(fontSize) {
+  const canvas = document.createElement("canvas");
+  const ctx = canvas.getContext("2d");
+  ctx.font = `${fontSize}px Arial`;
+  return ctx.measureText("★").width; 
+}
+
+function createStar(rating) {
+  let maxStars = 5;
+  const fontSize = 24;
+  
+  const starWidth = getStarWidth(fontSize);
+  const totalWidth = maxStars * starWidth;
+  const fillWidth = (parseFloat(rating) / maxStars) * totalWidth;
+
+  return `
+    <div style="
+      position: relative;
+      display: inline-block;
+      width: ${totalWidth}px;
+      height: ${fontSize}px;
+      font-size: ${fontSize}px;
+      font-family: Arial;
+      line-height: 1;
+    ">
+      <div style="
+        position: absolute;
+        top: 0; left: 0;
+        width: ${totalWidth}px;
+        color: #ccc;
+        white-space: nowrap;
+        overflow: hidden;
+        font-family: Arial;
+      ">${'★'.repeat(maxStars)}</div>
+
+      <div style="
+        position: absolute;
+        top: 0; left: 0;
+        width: ${fillWidth}px;
+        color: #f5a623;
+        white-space: nowrap;
+        overflow: hidden;
+        font-family: Arial;
+      ">${'★'.repeat(maxStars)}</div>
+    </div>
+  `;
+}
+
+function listReviews(obj) {
+  let list = "";
+
+ 
+  obj.reviews.forEach((review, index) => {
+    let rating = obj.rating[index];  
+
+    list += `
+      <div style="margin: 8px 0; padding: 8px; border: 1px solid #eee; border-radius: 6px;">
+        ${createStar(rating)}
+        <li style="margin-top: 4px;">${review}</li>
+      </div>
+    `;
+  });
+
+  return list;
+}
