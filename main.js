@@ -90,7 +90,17 @@ async function onSearch(value) {
 
     
 }
-  
+
+const priceRange=document.getElementById("PriceRange");
+const priceValue=document.getElementById("priceValue");
+priceRange.addEventListener("input",async function(){
+    priceValue.textContent=`${priceRange.value}$`
+});
+  const ratingRange=document.getElementById("ratingRange");
+  const ratingValue=document.getElementById("ratingValue");
+  ratingRange.addEventListener("input",async function(){
+    ratingValue.textContent=`${ratingRange.value}`
+  })
 //---------------------loading function--------------//
 async function loading(status) {
 
