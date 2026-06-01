@@ -79,7 +79,7 @@ async function onSearch(value) {
                <p>Price: ${obj.price}</p>
                <p>Location: ${obj.location}</p>
                ${obj.name.includes("Dr.") ? `<p>Clinic: ${obj.clinic}</p>` : ""}
-               <p>Rating: ${await averageOfRatings(obj.rating)}</p>
+               <p>Rating: ${averageOfRatings(obj.rating)}</p>
                <p>${obj.about}</p>
                <button onclick="addReview(${obj.id})">Add Review</button>`;
         
@@ -90,6 +90,7 @@ async function onSearch(value) {
 
     
 }
+  
 //---------------------loading function--------------//
 async function loading(status) {
 

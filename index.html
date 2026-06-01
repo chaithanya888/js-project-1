@@ -21,6 +21,9 @@
         <button type="button" id="my-orders">My Orders</button><br><br>
         <button type="button" id="my-reviews">My Reviews</button><br><br>
         <button type="button" id="logout">Logout</button>
+  
+        
+        
     </div>
     <div class="category-btns">
         <button type="button" onclick="checkAuth('food')" value="food">Food</button>
@@ -28,6 +31,11 @@
         <button type="button" onclick="checkAuth('health')" value="health">Health</button>
         <button type="button" onclick="checkAuth('hotels')" value="hotels">Hotels</button>
     </div>
+    <div class="filters">
+        <label for="PriceRange">PriceRange:-<span id="priceValue">10$</span></label>
+        <input type="range" id="PriceRange" min="1" max="1000" step="1" value="10">
+    </div>
+
     <div class="container">
 
     </div>
