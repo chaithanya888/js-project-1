@@ -31,13 +31,28 @@
         <button type="button" onclick="checkAuth('health')" value="health">Health</button>
         <button type="button" onclick="checkAuth('hotels')" value="hotels">Hotels</button>
     </div>
+    <div class="itemsFilter">
+        <select id="Order">
+            <option value="All">Select New or Old Items</option>
+            <option value="New">New</option>
+            <option value="Old">Old</option>
+        </select><br><br>
+        <label for="filter">Select the category Now </label><br>
+        <input type="radio" id="food" name="filter" value="food">
+        <label for="food">Food</label><br>
+        <input type="radio" id="home" name="filter" value="home">
+        <label for="home">Home</label><br>
+        <input type="radio" id="health" name="filter" value="health">
+        <label for="health">Health</label><br>
+        <input type="radio" id="hotels" name="filter" value="hotels">
+        <label for="hotels">Hotels</label>
+    </div>
     <div class="filters">
         <label for="PriceRange">PriceRange:- <span id="priceValue">10$</span></label>
         <input type="range" id="PriceRange" min="1" max="1000" step="1" value="10"><br>
         <label for="ratingRange">Rating:- <span id="ratingValue">3.1</span></label>
         <input type="range" id="ratingRange" min="0" max="5" step="0.1" value="3.1">
     </div>
-
     <div class="container">
 
     </div>

@@ -101,6 +101,33 @@ priceRange.addEventListener("input",async function(){
   ratingRange.addEventListener("input",async function(){
     ratingValue.textContent=`${ratingRange.value}`
   })
+
+
+  const newItemsBtn=document.getElementById("newItems").addEventListener("click",filterbyItems);
+    const oldItemsBtn=document.getElementById("oldItems").addEventListener("click",filterbyItems);
+async function filterbyItems(){
+
+        container.innerHTML="";
+        loading(true);
+
+    let res=await fetch("http://localhost:3000/category");
+    let data=await res.json();
+    let searchItems= data.category.newItemsBtn.value;
+    console.log(searchItems);
+    
+    // searchItems.filter(async (obj) => {
+    //     let div=document.createElement("div");
+    //     div.innerHTML+=`
+    //     <img style="width: 8rem; height: auto;" src="${obj.image}"><br>
+    //     <a>${obj.name}</a>
+    //     <p>Price: ${obj.price}</p>
+    //     <p>Location: ${obj.location}</p>
+    //     ${obj.name.includes("Dr.") ? `<p>Clinic: ${obj.clinic}</p>` : ""}
+    //     <div>${listReviews(obj)} </div>
+    //     `;
+    //     foodcontainer.append(div);
+    // });
+    };
 //---------------------loading function--------------//
 async function loading(status) {
 
