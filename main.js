@@ -27,29 +27,32 @@ async function searchCategory(selection){
     container.innerHTML="";
     let res=await fetch("http://localhost:3000/category");
     let data=await res.json();
- 
-    loading(true);
-        for(let i=0;i<data[selection].length;i++){
     
-            let div=document.createElement("div");
-            div.innerHTML = `
-            <img src="${data[selection][i].image}">
-            <a>${data[selection][i].name}</a>
-            <p>Price: ${data[selection][i].price}</p>
-            <p>Location: ${data[selection][i].location}</p>
-            ${selection == "health" ? `<p>Clinic: ${data[selection][i].clinic}</p>` : ""}
-            <p>Rating: ${await averageOfRatings(data[selection][i].rating)}</p>
-            <p>${data[selection][i].about}</p>
-            <button onclick="addReview(${data[selection][i].id})">Add Review</button>`;
-
-            container.append(div);
-        }
-        loading(false);
+    loading(true);
+    if(res.ok){
+        document.getElementsByClassName("itemsFilter")[0].style.display="block";
+    }
+    for(let i=0;i<data[selection].length;i++){
         
+        let div=document.createElement("div");
+        div.innerHTML = `
+        <img src="${data[selection][i].image}">
+        <a>${data[selection][i].name}</a>
+        <p>Price: ${data[selection][i].price}</p>
+        <p>Location: ${data[selection][i].location}</p>
+        ${selection == "health" ? `<p>Clinic: ${data[selection][i].clinic}</p>` : ""}
+        <p>Rating: ${await averageOfRatings(data[selection][i].rating)}</p>
+        <p>${data[selection][i].about}</p>
+        <button onclick="addReview(${data[selection][i].id})">Add Review</button>`;
+        
+        container.append(div);
+    }
+    loading(false);
+    
     document.getElementById("Search").value=`${selection}`;
 }
 
-function  averageOfRatings(ratings) {
+async function  averageOfRatings(ratings) {
     let sum=0;
         for(let i=0;i<ratings.length;i++){
             sum+=ratings[i];
@@ -68,6 +71,9 @@ async function onSearch(value) {
     let res=await fetch("http://localhost:3000/category");
     let data=await res.json();
      console.log(value);
+     if(res.ok){
+        document.getElementsByClassName("itemsFilter")[0].style.display="block";
+    }
     let searchItems= Object.values(data).flat();
     searchItems.filter(async (obj) => {
         if(obj.name.trim().toLowerCase().includes(value.trim().toLowerCase())){
@@ -102,17 +108,19 @@ priceRange.addEventListener("input",async function(){
     ratingValue.textContent=`${ratingRange.value}`
   })
 
-
-  const newItemsBtn=document.getElementById("newItems").addEventListener("click",filterbyItems);
-    const oldItemsBtn=document.getElementById("oldItems").addEventListener("click",filterbyItems);
-async function filterbyItems(){
+  
+  async function filterbyItems(){
+    let itemsAksed=document.getElementById("Order").value;
+    let itemType=document.getElementsByName("filter").value;
 
         container.innerHTML="";
         loading(true);
 
     let res=await fetch("http://localhost:3000/category");
     let data=await res.json();
-    let searchItems= data.category.newItemsBtn.value;
+    let searchItems= data.category.itemType;
+    console.log(itemsAksed);
+    console.log(itemType);
     console.log(searchItems);
     
     // searchItems.filter(async (obj) => {

@@ -26,25 +26,28 @@
         
     </div>
     <div class="category-btns">
-        <button type="button" onclick="checkAuth('food')" value="food">Food</button>
-        <button type="button" onclick="checkAuth('home')" value="home">Home</button>
-        <button type="button" onclick="checkAuth('health')" value="health">Health</button>
-        <button type="button" onclick="checkAuth('hotels')" value="hotels">Hotels</button>
+        <button type="button" onclick="checkAuth('food')" >Food</button>
+        <button type="button" onclick="checkAuth('home')" >Home</button>
+        <button type="button" onclick="checkAuth('health')">Health</button>
+        <button type="button" onclick="checkAuth('hotels')">Hotels</button>
     </div>
-    <div class="itemsFilter">
-        <select id="Order">
-            <option value="All">Select New or Old Items</option>
-            <option value="New">New</option>
-            <option value="Old">Old</option>
+    <div class="itemsFilter" style="display: none;" >
+        <select id="Order" >
+            <option value="" onchange="filterbyItems()">Select New or Old Items</option>
+            <option value="New" onchange="filterbyItems()">New</option>
+            <option value="Old" onchange="filterbyItems()">Old</option>
         </select><br><br>
         <label for="filter">Select the category Now </label><br>
-        <input type="radio" id="food" name="filter" value="food">
+        <input type="radio"  name="filter" value="food" onchange="filterbyItems()">
         <label for="food">Food</label><br>
-        <input type="radio" id="home" name="filter" value="home">
+
+        <input type="radio"  name="filter" value="home" onchange="filterbyItems()">
         <label for="home">Home</label><br>
-        <input type="radio" id="health" name="filter" value="health">
+
+        <input type="radio" name="filter" value="health" onchange="filterbyItems()">
         <label for="health">Health</label><br>
-        <input type="radio" id="hotels" name="filter" value="hotels">
+
+        <input type="radio"  name="filter" value="hotels" onchange="filterbyItems()">
         <label for="hotels">Hotels</label>
     </div>
     <div class="filters">
