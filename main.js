@@ -1,6 +1,6 @@
 //---------------------Category button & auth with Item Display functions------------//
 
-const foodcontainer=document.getElementById("food-container");
+const displaySection=document.getElementById("display-section");
 
 const container=document.getElementsByClassName("container")[0];
 
@@ -12,7 +12,7 @@ function checkAuth(category){
     if(category==""){
          return true;
     }else{
-        foodcontainer.innerHTML="";
+        displaySection.innerHTML="";
         loading(true);
         searchCategory(category);
     }
@@ -31,6 +31,8 @@ async function searchCategory(selection){
     loading(true);
     if(res.ok){
         document.getElementsByClassName("itemsFilter")[0].style.display="block";
+        document.getElementsByClassName("range-filters")[0].style.display="block";
+
     }
     for(let i=0;i<data[selection].length;i++){
         
@@ -73,6 +75,7 @@ async function onSearch(value) {
      console.log(value);
      if(res.ok){
         document.getElementsByClassName("itemsFilter")[0].style.display="block";
+        document.getElementsByClassName("range-filters")[0].style.display="block";
     }
     let searchItems= Object.values(data).flat();
     searchItems.filter(async (obj) => {
@@ -146,17 +149,36 @@ priceRange.addEventListener("input",async function(){
         ${searchItems[i].name.includes("Dr.") ? `<p>Clinic: ${searchItems[i].clinic}</p>` : ""}
         <div>${listReviews(searchItems[i])}</div>
     `;
-    foodcontainer.append(div);
+    displaySection.append(div);
 }
 
 loading(false);
     };
+
+async function priceAndrating() {
+    let priceRange=document.getElementById("PriceRange").value;
+    let ratingRange=document.getElementById("ratingRange").value;
+     console.log(priceRange);
+        console.log(ratingRange);
+}
+
+
+
+
+
+
+
+
+
+
+
+
 //---------------------loading function--------------//
 async function loading(status) {
 
     if(status){
         container.innerHTML="";
-        foodcontainer.innerHTML="";
+        displaySection.innerHTML="";
         let loadDiv=document.createElement("div");
         loadDiv.id="loading";
         loadDiv.innerHTML=`<p style="text-align: center; color: #0EA5E9;">Loading...</p>`;
@@ -178,7 +200,7 @@ async function addReview(id){
     console.log(id);
     console.log(localStorage.getItem("id"));
     container.innerHTML="";
-    foodcontainer.innerHTML="";
+    displaySection.innerHTML="";
     loading(true);
     let res=await fetch(`http://localhost:3000/category`);
     let data=await res.json();
@@ -302,7 +324,7 @@ async function dispalyItems() {
         ${obj.name.includes("Dr.") ? `<p>Clinic: ${obj.clinic}</p>` : ""}
         <div>${listReviews(obj)} </div>
         `;
-        foodcontainer.append(div);
+        displaySection.append(div);
     })
     
 }

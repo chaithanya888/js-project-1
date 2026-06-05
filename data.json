@@ -6,13 +6,16 @@
       "userId": "rohith",
       "password": "4444",
       "item-id": [
-        0
+        0,
+        103
       ],
       "item-rating": [
-        0
+        0,
+        5
       ],
       "item-review": [
-        ""
+        "",
+        "i love the beach view on the hotel view point"
       ]
     },
     {
@@ -397,9 +400,9 @@
         "image": "https://images.unsplash.com/photo-1555854877-bab0e564b8d5?w=500",
         "pricePerNight": "$15",
         "rating": [
-         3,
-         3,
-         2.3
+          3,
+          3,
+          2.3
         ],
         "reviews": [
           "Great for solo travellers",
@@ -428,12 +431,14 @@
         "rating": [
           4.6,
           4.8,
-          4.5
+          4.5,
+          5
         ],
         "reviews": [
           "Unique experience",
           "Perfect for couples",
-          "Nature at its best"
+          "Nature at its best",
+          "i love the beach view on the hotel view point"
         ],
         "about": "An eco-friendly resort nestled in the forest with treehouse cottages and nature walks.",
         "location": "Araku Valley, Visakhapatnam",

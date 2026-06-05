@@ -50,21 +50,16 @@
         <input type="radio"  name="filter" value="hotels" onchange="filterbyItems(this.value)">
         <label for="hotels">Hotels</label>
     </div>
-    <div class="filters">
-        <label for="PriceRange">PriceRange:- <span id="priceValue">10$</span></label>
-        <input type="range" id="PriceRange" min="1" max="1000" step="1" value="10"><br>
-        <label for="ratingRange">Rating:- <span id="ratingValue">3.1</span></label>
-        <input type="range" id="ratingRange" min="0" max="5" step="0.1" value="3.1">
+    <div class="range-filters" style="display: none;">
+        <label for="PriceRange">PriceRange:- <span id="priceValue">0$</span></label>
+        <input type="range" id="PriceRange" min="1" max="1000" step="1" value="0" oninput="priceAndrating(this.value)"><br>
+        <label for="ratingRange">Rating:- <span id="ratingValue">0</span></label>
+        <input type="range" id="ratingRange" min="0" max="5" step="0.1" value="0" oninput="priceAndrating(this.value)">
     </div>
     <div class="container">
 
     </div>
-    <div id="food-container">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUvfTQKSWuIApiVcA5EXUO_VzmFFEUCx6HEA&s"><br>
-        <a href="#">Burger</a>
-        <p>Price: $10.99</p>
-        <p>Rating: 4.5</p>
-        <description>A delicious burger made with fresh ingredients.</description>
+    <div id="display-section">
 
     </div>
     <script  src="main.js"></script>
