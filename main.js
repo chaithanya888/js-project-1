@@ -109,32 +109,47 @@ priceRange.addEventListener("input",async function(){
   })
 
   
-  async function filterbyItems(){
-    let itemsAksed=document.getElementById("Order").value;
-    let itemType=document.getElementsByName("filter").value;
-
+    async function filterbyItems(itemType){
+      let itemsAksed=document.getElementById("Order").value;
+      if(!itemType){
+        let checkedRadio = document.querySelector('input[name="filter"]:checked');
+        if (checkedRadio) {
+        itemType = checkedRadio.value;
+        };
+      }
+    
+    if(!itemsAksed  || !itemType){
+        return;
+    }
         container.innerHTML="";
         loading(true);
 
     let res=await fetch("http://localhost:3000/category");
     let data=await res.json();
-    let searchItems= data.category.itemType;
+    let searchItems= data[itemType];
     console.log(itemsAksed);
     console.log(itemType);
     console.log(searchItems);
     
-    // searchItems.filter(async (obj) => {
-    //     let div=document.createElement("div");
-    //     div.innerHTML+=`
-    //     <img style="width: 8rem; height: auto;" src="${obj.image}"><br>
-    //     <a>${obj.name}</a>
-    //     <p>Price: ${obj.price}</p>
-    //     <p>Location: ${obj.location}</p>
-    //     ${obj.name.includes("Dr.") ? `<p>Clinic: ${obj.clinic}</p>` : ""}
-    //     <div>${listReviews(obj)} </div>
-    //     `;
-    //     foodcontainer.append(div);
-    // });
+    
+    let start   = itemsAksed === "Old" ? 0 : searchItems.length - 1;
+    let end     = itemsAksed === "Old" ? searchItems.length : -1;
+    let step    = itemsAksed === "Old" ? 1 : -1;
+
+    for (let i = start; i !== end; i += step) {
+    let div = document.createElement("div");
+    div.innerHTML = `
+        <img style="width: 8rem; height: auto;" src="${searchItems[i].image}"><br>
+        <a>${searchItems[i].name}</a>
+        <p>Price: ${searchItems[i].price}</p>
+        <p>Location: ${searchItems[i].location}</p>
+        ${searchItems[i].name.includes("Dr.") ? `<p>Clinic: ${searchItems[i].clinic}</p>` : ""}
+        <div>${listReviews(searchItems[i])}</div>
+    `;
+    foodcontainer.append(div);
+}
+
+loading(false);
     };
 //---------------------loading function--------------//
 async function loading(status) {

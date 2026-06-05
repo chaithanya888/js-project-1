@@ -32,22 +32,22 @@
         <button type="button" onclick="checkAuth('hotels')">Hotels</button>
     </div>
     <div class="itemsFilter" style="display: none;" >
-        <select id="Order" >
-            <option value="" onchange="filterbyItems()">Select New or Old Items</option>
-            <option value="New" onchange="filterbyItems()">New</option>
-            <option value="Old" onchange="filterbyItems()">Old</option>
+        <select id="Order" onchange="filterbyItems()">
+            <option value="" >Select New or Old Items</option>
+            <option value="New" >New</option>
+            <option value="Old">Old</option>
         </select><br><br>
         <label for="filter">Select the category Now </label><br>
-        <input type="radio"  name="filter" value="food" onchange="filterbyItems()">
+        <input type="radio"  name="filter" value="food" onchange="filterbyItems(this.value)">
         <label for="food">Food</label><br>
 
-        <input type="radio"  name="filter" value="home" onchange="filterbyItems()">
+        <input type="radio"  name="filter" value="home" onchange="filterbyItems(this.value)">
         <label for="home">Home</label><br>
 
-        <input type="radio" name="filter" value="health" onchange="filterbyItems()">
+        <input type="radio" name="filter" value="health" onchange="filterbyItems(this.value)">
         <label for="health">Health</label><br>
 
-        <input type="radio"  name="filter" value="hotels" onchange="filterbyItems()">
+        <input type="radio"  name="filter" value="hotels" onchange="filterbyItems(this.value)">
         <label for="hotels">Hotels</label>
     </div>
     <div class="filters">
