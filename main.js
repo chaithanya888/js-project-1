@@ -113,6 +113,9 @@ priceRange.addEventListener("input",async function(){
 
   
     async function filterbyItems(itemType){
+if(itemType=="c"){
+
+}
       let itemsAksed=document.getElementById("Order").value;
       if(!itemType){
         let checkedRadio = document.querySelector('input[name="filter"]:checked');
@@ -158,15 +161,52 @@ loading(false);
 async function priceAndrating() {
     let priceRange=document.getElementById("PriceRange").value;
     let ratingRange=document.getElementById("ratingRange").value;
+
+     let itemsAksed=document.getElementById("Order").value;
+     let checkedRadio = document.querySelector('input[name="filter"]:checked');
+     if(!itemsAksed && !checkedRadio){
      console.log(priceRange);
         console.log(ratingRange);
-}
+        let res=await fetch("http://localhost:3000/category");
+        let data=await res.json();
+        let searchItems= Object.values(data).flat();
+        container.innerHtml="";
+        loading(true);
+        searchItems.filter(async (obj)=>{
+            if(obj.rating<=ratingRange  && obj.price<=priceRange){
+                renderItems(obj);
+            }
+            if(obj.ratingRange==0 && obj.price<=priceRange){
+                renderItems(obj);
+            }
+            if(obj.price==0 && obj.rating<=ratingRange){
+                renderItems(obj);
+            }
+            loading(false);
+        })
+    }else{
+        filterbyItems(obj);
+    }
 
-
-
-
-
-
+    }
+    
+    
+    
+    
+    async function renderItems(obj){
+    console.log("gathered items"); 
+    let div=document.createElement("div");
+       div.innerHTML = `
+       <img src="${obj.image}">
+       <a>${obj.name}</a>
+       <p>Price: ${obj.price}</p>
+       <p>Location: ${obj.location}</p>
+       ${obj.name.includes("Dr.") ? `<p>Clinic: ${obj.clinic}</p>` : ""}
+       <p>Rating: ${await averageOfRatings(obj.rating)}</p>
+       <p>${obj.about}</p>
+       <button onclick="addReview(${obj.id})">Add Review</button>`;    
+       container.append(div);
+    }
 
 
 
