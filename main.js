@@ -145,12 +145,14 @@ if(itemType=="c"){
     for (let i = start; i !== end; i += step) {
     let div = document.createElement("div");
     div.innerHTML = `
-        <img style="width: 8rem; height: auto;" src="${searchItems[i].image}"><br>
+     <img src="${searchItems[i].image}" style="width: 8rem; height: auto;"><br>
         <a>${searchItems[i].name}</a>
         <p>Price: ${searchItems[i].price}</p>
         <p>Location: ${searchItems[i].location}</p>
         ${searchItems[i].name.includes("Dr.") ? `<p>Clinic: ${searchItems[i].clinic}</p>` : ""}
-        <div>${listReviews(searchItems[i])}</div>
+        <p>Rating: ${await averageOfRatings(searchItems[i].rating)}</p>
+        <p>${searchItems[i].about}</p>
+        <button onclick="addReview(${searchItems[i].id})">Add Review</button>
     `;
     displaySection.append(div);
 }
