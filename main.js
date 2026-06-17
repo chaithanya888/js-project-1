@@ -269,69 +269,66 @@ async function addReview(id){
 
 }
 
-async function submitReview(id){
-    let review=document.getElementById("review").value;
-    let rating=parseInt(document.getElementById("rating").value);
-    if(rating<1 || rating>5){
-        let ratingError=document.getElementById("rating-error");
-        ratingError.textContent="Please enter a valid rating between 1 and 5.";
-        
+async function submitReview(id) {
+    let review = document.getElementById("review").value;
+    let rating = parseInt(document.getElementById("rating").value);
+
+    if (rating < 1 || rating > 5) {
+        let ratingError = document.getElementById("rating-error");
+        ratingError.textContent = "Please enter a valid rating between 1 and 5.";
         return;
     }
-    let res=await fetch(`http://localhost:3000/category`);
-    let data=await res.json();
-    for(let key in data){
-        let obj=data[key].find(obj=>obj.id==id);
-        if(obj){
+
+    // ✅ update category (same as before)
+    let res = await fetch(`http://localhost:3000/category`);
+    let data = await res.json();
+
+    for (let key in data) {
+        let obj = data[key].find(obj => obj.id == id);
+        if (obj) {
             obj.rating.push(rating);
             obj.reviews.push(review);
-            let getRes=await fetch(`http://localhost:3000/category`,{
-                method:"PATCH",
-                headers:{
-                    "content-type":"application/json",
-        },
-        body:JSON.stringify({
-            [key]:data[key]
-        })
+
+            let getRes = await fetch(`http://localhost:3000/category`, {
+                method: "PATCH",
+                headers: { "content-type": "application/json" },
+                body: JSON.stringify({ [key]: data[key] })
+            });
+
+            if (getRes.ok) {
+                let userRes = await fetch(`http://localhost:3000/user/${localStorage.getItem("id")}`);
+                let userData = await userRes.json();
+                let newReview = {
+                    "item-id": id,
+                    "item-rating": rating,
+                    "item-review": review
+                };
+
+                
+                let backres = await fetch(`http://localhost:3000/user/${localStorage.getItem("id")}`, {
+                    method: "PATCH",
+                    headers: { "content-type": "application/json" },
+                    body: JSON.stringify({
+                        "my-reviews": [...userData["my-reviews"], newReview]
+                    })
+                });
+
+                if (backres.ok) {
+                    let ratingError = document.getElementById("rating-error");
+                    ratingError.textContent = "Review submitted successfully!";
+                    ratingError.style.color = "green";
+                    setTimeout(() => {
+                        document.getElementById("review").remove();
+                        document.getElementById("rating").remove();
+                        document.getElementById("submit-review").remove();
+                        location.reload();
+                    }, 400);
+                } else {
+                    console.error(backres.statusText);
+                }
+            } else {
+                console.error(getRes.statusText);
             }
-        );
-
-        if(getRes.ok){
-            let res=await fetch(`http://localhost:3000/user`);
-            let data=await res.json();
-
-            let userData=await data.find(v=>v.id==localStorage.getItem("id"));
-
-        let backres=await fetch(`http://localhost:3000/user/${localStorage.getItem("id")}`,{
-            method:"PATCH",
-            headers:{
-                "content-type":"application/json",
-            },
-            body:JSON.stringify({
-            "item-id":[...userData["item-id"], id],
-            "item-rating":[...userData["item-rating"], rating],
-            "item-review":[...userData["item-review"], review]   
-            })
-
-            
-        });
-
-        if(backres.ok){
-        let ratingError=document.getElementById("rating-error");
-        ratingError.textContent="Review submitted successfully!";
-        ratingError.style.color="green";
-        setTimeout(()=>{
-                document.getElementById("review").remove();
-                document.getElementById("rating").remove();
-                document.getElementById("submit-review").remove();
-                location.reload();
-            },400);
-        }else{
-            console.error(backres.statusText);
-        }
-        }else{
-            console.error(backres.statusText);
-        }
         }
     }
 }

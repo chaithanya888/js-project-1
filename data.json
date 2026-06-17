@@ -5,17 +5,12 @@
       "name": "Rohith",
       "userId": "rohith",
       "password": "4444",
-      "item-id": [
-        0,
-        103
-      ],
-      "item-rating": [
-        0,
-        5
-      ],
-      "item-review": [
-        "",
-        "i love the beach view on the hotel view point"
+      "my-reviews": [
+        {
+          "item-id": 24,
+          "item-rating": 4,
+          "item-review": "nice"
+        }
       ]
     },
     {
@@ -23,17 +18,12 @@
       "name": "Cahithanya",
       "userId": "raju",
       "password": "1234",
-      "item-id": [
-        2,
-        1
-      ],
-      "item-rating": [
-        4,
-        4
-      ],
-      "item-review": [
-        "i really like the spicy and all mixed flavours.Enjoyed it",
-        "Need more chciken pices overall good"
+      "my-reviews": [
+        {
+          "item-id": 1,
+          "item-rating": 4.4,
+          "item-review": "excellent"
+        }
       ]
     }
   ],
@@ -73,13 +63,15 @@
           4.3,
           4.7,
           5,
+          4,
           4
         ],
         "reviews": [
           "good",
           "excellent",
           "Supereb",
-          "i really like the spicy and all mixed flavours.Enjoyed it"
+          "i really like the spicy and all mixed flavours.Enjoyed it",
+          "the mutton is so tender i like the juciy flavour"
         ],
         "about": "it is madeup of this ingredirnts ",
         "location": "hyderabad",
@@ -138,13 +130,15 @@
           4.1,
           4.5,
           4.4,
+          4,
           4
         ],
         "reviews": [
           "good",
           "excellent",
           "Supereb",
-          "i like the door quality"
+          "i like the door quality",
+          "quality is good"
         ],
         "about": "it is madeup of this ingredirnts ",
         "location": "Balanagar",
@@ -180,6 +174,7 @@
           4.5,
           3.9,
           4,
+          4,
           4
         ],
         "reviews": [
@@ -187,7 +182,8 @@
           "excellent",
           "Supereb",
           "Need some timetable issue",
-          "she is good an explaining the problem and nice treatment"
+          "she is good an explaining the problem and nice treatment",
+          "nice"
         ],
         "about": "it is madeup of this ingredirnts ",
         "location": "Balanagar",
@@ -202,14 +198,16 @@
           4.5,
           4.9,
           4.7,
-          3
+          3,
+          4
         ],
         "reviews": [
           "good",
           "excellent",
           "Supereb",
           "Need some timetable issue",
-          "sir have make me comfortable by giving back my smile "
+          "sir have make me comfortable by giving back my smile ",
+          "nice"
         ],
         "about": "it is madeup of this ingredirnts ",
         "location": "Kukatpally",
