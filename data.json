@@ -9,7 +9,7 @@
         {
           "item-id": 24,
           "item-rating": 4,
-          "item-review": "nice"
+          "item-review": "goooood"
         }
       ]
     },
@@ -172,18 +172,11 @@
         "price": "$100",
         "rating": [
           4.5,
-          3.9,
-          4,
-          4,
-          4
+          3.9
         ],
         "reviews": [
           "good",
-          "excellent",
-          "Supereb",
-          "Need some timetable issue",
-          "she is good an explaining the problem and nice treatment",
-          "nice"
+          "excellent"
         ],
         "about": "it is madeup of this ingredirnts ",
         "location": "Balanagar",
@@ -196,18 +189,11 @@
         "price": "$100",
         "rating": [
           4.5,
-          4.9,
-          4.7,
-          3,
-          4
+          4.9
         ],
         "reviews": [
           "good",
-          "excellent",
-          "Supereb",
-          "Need some timetable issue",
-          "sir have make me comfortable by giving back my smile ",
-          "nice"
+          "excellent"
         ],
         "about": "it is madeup of this ingredirnts ",
         "location": "Kukatpally",
@@ -226,8 +212,7 @@
         "reviews": [
           "good",
           "excellent",
-          "Supereb",
-          "Need some timetable issue"
+          "Supereb"
         ],
         "about": "it is madeup of this ingredirnts ",
         "location": "Ahemdabad",
@@ -246,8 +231,7 @@
         "reviews": [
           "good",
           "excellent",
-          "Supereb",
-          "Need some timetable issue"
+          "Supereb"
         ],
         "about": "it is madeup of this ingredirnts ",
         "location": "Balanagar",
@@ -268,7 +252,6 @@
           "good",
           "excellent",
           "Supereb",
-          "Need some timetable issue",
           "as per  the name he is good i loved the treatment"
         ],
         "about": "it is madeup of this ingredirnts ",
@@ -288,8 +271,7 @@
         "reviews": [
           "good",
           "excellent",
-          "Supereb",
-          "Need some timetable issue"
+          "Supereb"
         ],
         "about": "it is madeup of this ingredirnts ",
         "location": "Ahemdabad",
@@ -309,7 +291,6 @@
         "reviews": [
           "good",
           "excellent",
-          "Supereb",
           "Need some timetable issue",
           "had an nice comfort replace teeth transplantation"
         ],
@@ -329,7 +310,6 @@
         ],
         "reviews": [
           "good",
-          "excellent",
           "Supereb",
           "Need some timetable issue"
         ],
@@ -350,7 +330,6 @@
         "reviews": [
           "good",
           "excellent",
-          "Supereb",
           "Need some timetable issue"
         ],
         "about": "it is madeup of this ingredirnts ",
@@ -368,14 +347,12 @@
           4.8,
           4.9,
           4.7,
-          4,
           4
         ],
         "reviews": [
           "Breathtaking views",
           "World-class service",
           "Absolutely luxurious",
-          "find very luxcery and super relaxing",
           "find very luxcery and super relaxing"
         ],
         "about": "A 5-star luxury hotel in the heart of the city with rooftop pool and fine dining.",

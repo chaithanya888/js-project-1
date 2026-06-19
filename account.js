@@ -91,27 +91,35 @@ async function saveReview(param) {
             body: JSON.stringify(userData)
         });
 
-        let categoryRes = await fetch(`http://localhost:3000/category`);
+       let backData = await backRes.json();
+      
+
+
+
+
+
+        if (backData.ok) {
+
+            let categoryRes = await fetch(`http://localhost:3000/category`);
         let categoryData = await categoryRes.json();
         let items = Object.values(categoryData).flat();
-        items.forEach(async (item) => {
+
+        for (let item of items) {
             if (item.id === param) {
-                item.rating = newRating; 
-                item.reviews = item.reviews;   
+                item.rating.splice(indexToRemove, 1);
+                item.reviews.splice(indexToRemove, 1);
+
                 let updateRes = await fetch(`http://localhost:3000/category/${item.id}`, {
                     method: "PATCH",
                     headers: { "content-type": "application/json" },
                     body: JSON.stringify(item)
                 });
-            }
-        });
 
+                continue; 
+            }}
 
-
-
-
-        if (backRes.ok) {
             console.log("Review updated successfully.");
+
             let container2=document.querySelector(".container-2");
             let itemDiv=document.createElement("div");
             itemDiv.innerHTML=`<h3 style="color: green;">Review updated successfully.</h3>`;
